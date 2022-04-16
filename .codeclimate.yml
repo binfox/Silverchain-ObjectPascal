@@ -1,0 +1,11 @@
+version: "2"
+
+plugins:
+  pmd:
+    enabled: true
+  sonar-java:
+    enabled: true
+
+exclude_patterns:
+  - "src/test/resources/java"
+  - "src/main/java/silverchain/command/EntryPoint.java"
