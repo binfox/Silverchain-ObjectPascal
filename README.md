@@ -1,6 +1,6 @@
 # Silverchain ObjectPascal: Fluent API generator for Java and ObjectPascal
 
-The original ist Silverchain by ...
+The original ist Silverchain by Tomoki Nakamaru
 Link: https://github.com/tomokinakamaru/silverchain
 
 ## What is Silverchain for?
