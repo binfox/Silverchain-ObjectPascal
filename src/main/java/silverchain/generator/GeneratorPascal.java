@@ -23,6 +23,15 @@ import silverchain.parser.TypeParameterList;
 
 public final class GeneratorPascal extends GeneratorJava{
 
+  private String getfirstPointpartfromString(String in,int minparts){
+      String[] parts = in.split("\\.");
+      if (parts.length < minparts){
+          return "";
+      }else{
+          return parts[0];
+      }
+  }    
+    
   private String getlastPointpartfromString(String in){
       String[] parts = in.split("\\.");
       return parts[parts.length-1];
@@ -41,8 +50,6 @@ public final class GeneratorPascal extends GeneratorJava{
     writeLineBreak();
     write("Interface");
     writeLineBreak();
-    write("uses classes;");
-    writeLineBreak();    
     generateuses(diagram);
     writeLineBreak();    
     write("type");
@@ -60,9 +67,20 @@ public final class GeneratorPascal extends GeneratorJava{
     endFile();
   }
   protected void generateuses(Diagram diagram) {
-      //protected boolean writeStateMethodReturnUses(State s,boolean close,boolean addimpl,String unitname) {
-      diagram.numberedStates().forEach(state -> writeStateMethodReturnUses(state,false,false,diagram.name().name()));
-      //diagram.numberedStates().forEach(state -> generateforeward(state));
+      ArrayList<String> uses = new ArrayList<>();
+      ArrayList<String> writeuses = new ArrayList<>();
+      diagram.numberedStates().forEach(state -> uses.addAll(getStateUses(state)));
+      for (String s :uses ){
+          if (!writeuses.contains(s)){
+             writeuses.add(s);
+          }
+      }
+      if (!writeuses.isEmpty()){
+        write("uses ");
+        writeStateUses(writeuses);
+        writeSemicolon();
+      }
+      
   }
   
   protected void generateforeward(Diagram diagram) {
@@ -85,32 +103,13 @@ public final class GeneratorPascal extends GeneratorJava{
 
   
   protected void generateimpl(State state, Javadocs javadocs) {
-    //super.generate(state,javadocs);
     generateStateImpl(state);
     writeLineBreak();       
   }
   
   protected void generatedecl(State state, Javadocs javadocs) {
-    //super.generate(state,javadocs);
-
     generateIStateDecl(state,javadocs);
-    //Fill uses with used Units from istatedecl
-    //writeStateMethodReturnUses(state,true,false,getIStateName(state));
-    generateStateDecl(state);
-    /*
-    //Fill uses with used Units
-    write("uses ");
-    if (writeStateMethodReturnUses(state,false,true,getStateName(state))){
-        write(" , " );
-    }
-    write(getIActionName(state.diagram())+"_fluent");
-    write(" , " );
-    write(getIStateQualifiedName(state)+"_fluent");
-    //write(getIStateReference(state)+"_fluent");
-    
-    writeSemicolon();
-    writeLineBreak();    
-    */    
+    generateStateDecl(state); 
     writeLineBreak();       
   }
   
@@ -349,7 +348,7 @@ protected void generateStateDecl(State state) {
     
     // Constructor
     writeIndentation();
-    writeIndentation(); // Einrückung
+    writeIndentation(); // EinrÃ¼ckung
     write("Constructor Create(");
     writeActionDeclaration(state.diagram());
     write(")");
@@ -473,83 +472,58 @@ protected void generateStateImpl(State state) {
     return s1;
   }  
   
-  private String exportparams(FormalParameters p){
-    System.out.println("silverchain.generator.GeneratorPascal.exportparams()");      
-    String ausgabe="";
+  private ArrayList<String> exportparams(FormalParameters p){
+
+    ArrayList<String> ausgabe = new ArrayList<>();
     for (FormalParameter f : p)  {
-        System.out.println(f.type().toString());
-        ausgabe= f.type().toString();
+        ausgabe.add(f.type().toString());
     }
     return ausgabe;
   }
   
-  protected boolean writeStateMethodReturnUses(State s,boolean close,boolean addimpl,String unitname) {
-    ArrayList<String> uses = new ArrayList<>();
+  
+  protected void writeStateUses(ArrayList<String> in){
+    Boolean first = true;
+    for (String txt : in) {
+        if (!first){
+            write(" , ");
+        }
+        write(txt);
+        first = false;
+    }   
+  }
+  
+  
+  protected ArrayList<String> getStateUses(State s) {
     ArrayList<String> extuses = new ArrayList<>();
     for (Transition transition : s.transitions()) {
       State d = transition.destination();
       Label l = transition.label();
       
       
-      //Object param[] = transition.label().method().parameters().formalParameters().stream().map(p->exportparams(p)).toArray();
-      String param=exportparams(transition.label().method().parameters().formalParameters().get());
-      //transition.label().method().parameters().formalParameters().toString());
-      System.out.println("silverchain.generator.GeneratorPascal.writeStateMethodReturnUses()");
-      System.out.println(param);
-      extuses.add(param);
-
-      //if (!param.contains("java.")) {
-//        extuses.add(param);
-//      }
+      //Parameter
+      if (transition.label().method().parameters().formalParameters().isPresent()) {
+        ArrayList<String> param=exportparams(transition.label().method().parameters().formalParameters().get());
+        for (String p : param){
+          String part = getfirstPointpartfromString(p,2);
+          if (!part.isBlank()){
+            extuses.add(part);
+          }
+        }
+      }
       
-      //Pascal verbindet die Units über USES - Rückgabetypen müssen beachtet werden.
+      //Pascal verbindet die Units Ã¼ber USES - RÃ¼ckgabetypen mÃ¼ssen beachtet werden.
       String[] extclasses = getIStateReference(d).split("\\.");
       if (extclasses.length > 1) {
-          // es existieren eingezogene Klassen für die Rückgabeparameter
-          if (!extclasses[0].contains("java.")) {
+          // es existieren eingezogene Klassen fÃ¼r die RÃ¼ckgabeparameter
+          if (!extclasses[0].equals("java")) {
             if (!extuses.contains(extclasses[0])){
-              extuses.add(extclasses[0]);
+               extuses.add(extclasses[0]);
             }
           }
       }
-      if (!getIStateName(d).contains("java.")) {
-        if ((!unitname.equals(getIStateName(d))) && (!getIActionName(s.diagram()).equals(getIStateName(d))) && (!getIStateQualifiedName(s).equals(getIStateName(d)))){
-          if ((!getIStateReference(d).equals("void"))&&(d.isNumbered())){
-            
-            if (!uses.contains(getIStateName(d))){
-              uses.add(getIStateName(d));
-            
-            }
-          }
-        }
-      }
-    }
-    Boolean first = true;
-    if (close && !uses.isEmpty()){
-        write("uses ");
-    }
-    for (String txt : uses) {
-        if (!first){
-            write(" , ");
-        }
-        write(txt+"_fluent");
-        if (addimpl){
-           write(","+txt+"impl_fluent");  
-        }
-        first = false;
-    }
-    for (String txt : extuses) {
-        if (!first){
-            write(" , ");
-        }
-        write(txt);
-        first = false;
-    }    
-    
-    if (close && !uses.isEmpty()){
-        writeSemicolon();
-    }
-    return !first;
+    } 
+    return extuses;
   }
   
   @Override  
@@ -611,7 +585,7 @@ protected void generateStateImpl(State state) {
             s2=getlastPointpartfromString(getIStateReference(d));
     }
     List<TypeParameter> psub = d.typeParameters(); 
-    if (!psub.isEmpty()){ //Rückgebewert ist ein Generic
+    if (!psub.isEmpty()){ //RÃ¼ckgebewert ist ein Generic
         if (!d.isNumbered()){
             
             if (s2.contains("<") && s2.contains(">")){ //da ist etwas unklar in Silverchain.
@@ -624,7 +598,7 @@ protected void generateStateImpl(State state) {
             s2=":specialize "+s2+encode(psub, true).replace(";", ",");
         }
     }else{
-        if (s2.contains("<") && s2.contains(">")){ //von Hand übergebene specialisierung
+        if (s2.contains("<") && s2.contains(">")){ //von Hand Ã¼bergebene specialisierung
             s2=":specialize "+s2 ;
         }else{
             s2=":"+s2;
