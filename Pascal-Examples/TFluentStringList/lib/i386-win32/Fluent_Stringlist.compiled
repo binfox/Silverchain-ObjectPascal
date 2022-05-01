@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="C:\lazarus\fpc\3.2.2\bin\i386-win32\fpc.exe" Date="1411538638"/>
+  <Params Value=" -MObjFPC -Scghi -O1 -g -gl -l -vewnhibq -FiD:\yourlahr_owncloud\Studium\Bachelor\Pascalexamples\TFluentStringLis\lib\i386-win32 -FuD:\yourlahr_owncloud\Studium\Bachelor\Pascalexamples\TFluentStringLis\ -FUD:\yourlahr_owncloud\Studium\Bachelor\Pascalexamples\TFluentStringLis\lib\i386-win32\ -FED:\yourlahr_owncloud\Studium\Bachelor\Pascalexamples\TFluentStringLis\ -oD:\yourlahr_owncloud\Studium\Bachelor\Pascalexamples\TFluentStringLis\Fluent_Stringlist.exe Fluent_Stringlist.lpr"/>
+</CONFIG>

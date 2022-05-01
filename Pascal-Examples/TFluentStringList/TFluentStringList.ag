@@ -1,0 +1,11 @@
+import classes.tstringlist;
+
+TFluentStringList {
+  void
+  (add(String s))+
+  savetofile(String s);
+  tstringlist
+  (add(String s))+ 
+  get();
+}
+

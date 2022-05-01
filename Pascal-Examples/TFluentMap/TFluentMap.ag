@@ -1,0 +1,6 @@
+import fgl.TFPGMap;
+
+TFluentMap<V> {
+  void put(String key, V value)* print();
+  TFPGMap<String,V> put(String key, V value)* build();
+}

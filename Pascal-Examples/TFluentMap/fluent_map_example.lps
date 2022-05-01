@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="fluent_map_example.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="10" Y="67"/>
+        <UsageCount Value="44"/>
+        <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="melodychain\intermediates\Melody0.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="16"/>
+        <UsageCount Value="42"/>
+      </Unit>
+      <Unit>
+        <Filename Value="melodychain\intermediates\Melody0_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="20"/>
+        <UsageCount Value="41"/>
+      </Unit>
+      <Unit>
+        <Filename Value="melodychain\Melody0Impl_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="48" Y="21"/>
+        <UsageCount Value="41"/>
+      </Unit>
+      <Unit>
+        <Filename Value="melodychain\MelodyAction_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="42" Y="36"/>
+        <UsageCount Value="41"/>
+      </Unit>
+      <Unit>
+        <Filename Value="melodychain\Melody0Impl.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="37" Y="5"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\fpc\3.2.0\source\rtl\win32\system.pp"/>
+        <UnitName Value="System"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="15" Y="17"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\Converter\silverchain-main\Jan_test\short_melodie\fluent_melodychain\Melody0Impl.pas"/>
+        <UnitName Value="fluent_Melody0Impl"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Melody0Impl_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="56" Y="33"/>
+        <UsageCount Value="10"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Melody0_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="52" Y="6"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Melody1_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="17" Y="6"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="MelodyAction_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="171"/>
+        <CursorPos X="10" Y="227"/>
+        <UsageCount Value="11"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Melody32_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="8" Y="13"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Melody32Impl_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="16" Y="16"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="MapBuilderAction_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="61" Y="11"/>
+        <UsageCount Value="16"/>
+      </Unit>
+      <Unit>
+        <Filename Value="MapBuilder0Impl_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="46" Y="11"/>
+        <UsageCount Value="16"/>
+      </Unit>
+      <Unit>
+        <Filename Value="MapBuilder0_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="5" Y="19"/>
+        <UsageCount Value="16"/>
+      </Unit>
+      <Unit>
+        <Filename Value="MapBuilder1_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="38" Y="12"/>
+        <UsageCount Value="16"/>
+      </Unit>
+      <Unit>
+        <Filename Value="MapBuilder1Impl_fluent.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="20" Y="2"/>
+        <UsageCount Value="16"/>
+      </Unit>
+      <Unit>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="30" Y="13"/>
+        <UsageCount Value="12"/>
+        <Loaded Value="True"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="20">
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="37"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="39"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="4" Column="3"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="13" Column="3"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="29" Column="3"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="18" Column="3" TopLine="6"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="38" Column="3"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="8" Column="6"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="22" Column="10"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="8"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="24" Column="3"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="39"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="33"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="68" Column="69"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="11"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="10" Column="22"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="11" Column="29"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="13" Column="6"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="12" Column="26"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="11"/>
+      </Position>
+      <Position>
+        <Filename Value="TFluentMap_fluent.pas"/>
+        <Caret Line="10" Column="3"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

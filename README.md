@@ -105,6 +105,15 @@ When a library is implemented in the user-friendly way, the completion system sh
 ```cmd
 gradlew.bat shadowJar
 ```
+
+## Download prebuild jar
+
+https://owncloud.yourlahr.de/index.php/s/zluo789Vfm2uY1A
+
+## Examples
+
+See the dir Pascal-Examples
+
 ## Command line options
 
 ```
@@ -124,6 +133,7 @@ gradlew.bat shadowJar
 ```sh
 java -jar silverchain-0.3.0-SNAPSHOT-all.jar -p -i src/test/resources/alertdialog.ag -o alertdialog
 ```
+
 ```cmd
 java.exe -jar silverchain-0.3.0-SNAPSHOT-all.jar -p -i src/test/resources/alertdialog.ag -o alertdialog
 ```

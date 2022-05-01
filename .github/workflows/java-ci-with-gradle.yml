@@ -1,0 +1,45 @@
+name: Java CI with Gradle
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        java-version: [8, 11]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up JDK ${{ matrix.java-version }}
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ matrix.java-version }}
+          distribution: adopt
+          cache: gradle
+
+      - name: Download cc-test-reporter
+        run: curl -sfL https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > cc-test-reporter && chmod +x cc-test-reporter
+
+      - name: Run `cc-test-reporter before-build`
+        run: ./cc-test-reporter before-build
+
+      - name: Build with Gradle
+        run: ./gradlew check --info
+
+      - name: Run `cc-test-reporter format-coverage`
+        run: JACOCO_SOURCE_PATH=src/main/java ./cc-test-reporter format-coverage build/reports/jacoco/test/jacocoTestReport.xml -t jacoco
+
+      - name: Run `cc-test-reporter upload-coverage`
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        run: |
+          if [[ $CC_TEST_REPORTER_ID != "" ]]; then
+            ./cc-test-reporter upload-coverage
+          fi
